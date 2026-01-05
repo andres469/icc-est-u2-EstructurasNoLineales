@@ -1,18 +1,34 @@
-## Getting Started
+# Práctica: Estructuras No Lineales - 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Autor
+- Nombre: Juan Andres Tenesaca Criollo
+- Carrera/Curso: Estructuras De Datos
 
-## Folder Structure
+##  Nombre de la práctica - Fecha
+- Práctica: Práctica de Árboles – Implementación Integers
+- Fecha: [5/1/2026]
 
-The workspace contains two folders by default, where:
+## Descripción
+# Árbol Binario de Búsqueda en Java
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+En esta práctica se desarrolló un **Árbol Binario de Búsqueda (BST)** utilizando el lenguaje de programación **Java**, aplicando los principios de la **Programación Orientada a Objetos (POO)** y el uso de **clases genéricas**.  
+La implementación permite almacenar elementos de cualquier tipo siempre que implementen la interfaz `Comparable`, garantizando el orden correcto de los datos dentro del árbol.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+El proyecto incluye operaciones fundamentales como la **inserción de nodos**, el cálculo del **tamaño del árbol en tiempo constante O(1)** mediante un contador interno, y los **recorridos recursivos InOrder, PreOrder y PostOrder**.  
+Además, el código se organizó en paquetes para mejorar la **modularidad, legibilidad y reutilización**.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
+## Estructura del Proyecto
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+
+## Evidencias
+### Captura 1
+![alt text](image.png)
+
+### Captura 2 
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)

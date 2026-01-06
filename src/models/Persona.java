@@ -21,11 +21,16 @@ public class Persona implements Comparable<Persona> {
 
     @Override
     public int compareTo(Persona other) {
-        return Integer.compare(this.edad, other.edad);
+        int resultComp= Integer.compare(this.edad, other.edad);
+        if (resultComp!=0) {
+            return resultComp;
+        }
+        return this.nombre.compareTo(other.nombre);
     }
 
     @Override
     public String toString() {
         return nombre + " (" + edad + " años)";
     }
+    
 }

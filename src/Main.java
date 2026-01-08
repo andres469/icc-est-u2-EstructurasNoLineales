@@ -1,3 +1,5 @@
+import Structures.Nodes.Node;
+import Structures.graphs.Graph;
 import Structures.trees.IntTree;
 import Structures.trees.tree;
 import models.Persona;
@@ -5,7 +7,8 @@ import models.Persona;
 public class Main {
 
     public static void main(String[] args) {
-        runTree();
+        //runTree();
+        runGraph();
         System.out.println("=== Arbol de enteros ===");
         IntTree intTree = new IntTree();
         intTree.insert(10);
@@ -48,6 +51,20 @@ public class Main {
         personaTree.insert(new Persona("Pedro", 23));
         personaTree.insert(new Persona("Luis", 19));
         personaTree.inOrder();
+    }
+
+    public static void runGraph() {
+        Graph<String> graph = new Graph<>();
+        Node<String> nA = new Node<>("A");
+        Node<String> nB = new Node<>("B");
+        Node<String> nC = new Node<>("C");
+        Node<String> nd = new Node<>("D");
+        graph.addNode(nA);
+        graph.addEdge(nA, nB);
+        graph.addEdge(nA, nC);
+        graph.addEdge(nB, nd);
+        graph.printGraph();
+        
     }
 }
 

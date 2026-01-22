@@ -21,4 +21,9 @@ public class Node<T> {
         this.left = null;
         this.right = null;
     }
+
+    @Override
+    public String toString() {
+        return value.toString();
+    }
 }

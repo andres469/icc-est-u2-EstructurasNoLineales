@@ -4,8 +4,13 @@ import Structures.Nodes.Node;
 import java.util.ArrayList;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
 public class Graph<T> {
     List<Node<T>> nodes;
@@ -33,6 +38,20 @@ public class Graph<T> {
         mapa.get(n2).add(n1);
 
     }
+
+public void addConocido(Node<T> n1, Node<T> n2) {
+        addNode(n1);
+        addNode(n2);
+        mapa.get(n1).add(n2);
+    }
+    public void addConocido(T dato1, T dato2) {
+        // Aquí es donde ocurre la "magia": envolvemos la Persona en un Node
+        Node<T> n1 = new Node<>(dato1);
+        Node<T> n2 = new Node<>(dato2);
+        
+        // Llamamos al método de arriba para reutilizar la lógica
+        this.addConocido(n1, n2);
+    }
     public void printGraph(){
         for (Map.Entry<Node<T>, List<Node<T>>> entry : mapa.entrySet()) {
           System.out.print(entry.getKey().value + " -> ");
@@ -41,6 +60,42 @@ public class Graph<T> {
             }
            
             System.out.println();
+        }
+    }
+    public List<Node<T>> getNeighbors(Node<T> node) {
+        return mapa.getOrDefault(node, List.of());
+    }
+
+    public void bfs(Node<T> start) {
+        Set<Node<T>> visitados=new LinkedHashSet<>();
+        Queue<Node<T>> queue=new LinkedList<>();
+        visitados.add(start);
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            Node<T> current=queue.poll();
+            System.out.print(current.value+" ");
+            for (Node<T> neighbor : getNeighbors(current)) {
+                if (!visitados.contains(neighbor)) {
+                    visitados.add(neighbor);
+                    queue.add(neighbor);
+                }
+            }
+
+        }
+    }
+
+    public void dfs(Node<T> start) {
+        Set<Node<T>> visitados=new LinkedHashSet<>();
+        dfsRecursive(start, visitados);
+    }
+    private void dfsRecursive(Node<T> start, Set<Node<T>> visitados) {
+        visitados.add(start);
+        System.out.print(start.value+" ");
+        for (Node<T> neighbor : getNeighbors(start)) {
+            if (!visitados.contains(neighbor)) {
+                dfsRecursive(neighbor, visitados);
+            }
         }
     }
     
